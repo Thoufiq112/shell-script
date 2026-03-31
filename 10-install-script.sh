@@ -12,18 +12,26 @@ dnf install mysql -y
 
 if [ $? -ne 0 ] 
 then
-   echo "Installing Mysql ... Failure"
-   exit 1
-else
-   echo "Installing Mysql ... Success"
+    echo "Installing Mysql ... Failure"
+    exit 1
+    else
+    echo "Installing Mysql ... Success"
+    fi
+else 
+   echo "Mysql is already ... Installed"
 fi
 
-dnf install git -y
-
+dnf list installed git
 if [ $? -ne 0 ]
 then 
-   echo "Installing Git ... Failure"
-   exit 1
+    dnf install git -y
+    if [ $? -ne 0 ]
+    then 
+        echo "Installing Git ... Failure"
+        exit 1
+    else 
+        echo "Installing Git ... Success"
+    fi
 else 
-   echo "Installing Git ... Success"
+   echo "GIT is already ... Installed"
 fi
