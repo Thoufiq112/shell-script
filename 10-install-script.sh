@@ -14,11 +14,11 @@ if [ $? -ne 0 ]
 then
     echo "Installing Mysql ... Failure"
     exit 1
-    else
+else
     echo "Installing Mysql ... Success"
     fi
 else 
-   echo "Mysql is already ... Installed"
+    echo "Mysql is already ... Installed"
 fi
 
 # if [ $? -ne 0 ] 
