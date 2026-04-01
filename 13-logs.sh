@@ -18,7 +18,7 @@ else
     echo -e "$2 ... $G Success"
      fi    
 }
-echo "Script started executing at: $TIMESTAMP" &>>LOG_FILE
+echo "Script started executing at: $TIMESTAMP" &>>LOG_FILE_NAME
 
 if [ $USERID -ne 0 ]
 then
@@ -26,19 +26,19 @@ then
    exit 1
 fi
 
-dnf list installed MySQL &>>LOG_FILE
+dnf list installed MySQL &>>LOG_FILE_NAME
 if [ $? -ne 0 ]
 then
-    dnf install mysql -y &>>LOG_FILE
+    dnf install mysql -y &>>LOG_FILE_NAME
     VALIDATE $? "Installing Mysql"
 else 
     echo -e "Mysql is already ... $Y Installed"
 fi
 
-dnf list installed git &>>LOG_FILE
+dnf list installed git &>>LOG_FILE_NAME
 if [ $? -ne 0 ]
 then 
-    dnf install git -y &>>LOG_FILE
+    dnf install git -y &>>LOG_FILE_NAME
     VALIDATE $? "Installing Git"
 else 
    echo -e "GIT is already ... $Y Installed"
