@@ -46,14 +46,14 @@ else
    echo -e "GIT is already ... $Y Installed $N"
 fi
 
-for package in $@
+for Package in $@
 do
-    dnf list installed $package &>>$LOG_FILE_NAME
+    dnf list installed $Package &>>$LOG_FILE_NAME
     if [ $? -ne 0 ]
     then
-        dnf install $package -y &>>$LOG_FILE_NAME
-        VALIDATE $? "Installing $package"
+        dnf install $Package -y &>>$LOG_FILE_NAME
+        VALIDATE $? "Installing $Package"
     else
-        echo -e "$Pacj=kage is already $Y ... Installed $N"
+        echo -e "$Package is already $Y ... Installed $N"
     fi
 done
