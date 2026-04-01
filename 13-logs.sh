@@ -26,7 +26,7 @@ then
    exit 1
 fi
 
-dnf list  installed MySQL &>>LOG_FILE
+dnf list installed MySQL &>>LOG_FILE
 if [ $? -ne 0 ]
 then
     dnf install mysql -y &>>LOG_FILE
